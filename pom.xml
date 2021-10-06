@@ -29,4 +29,12 @@
     </dependency>
   </dependencies>
 
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub sh0ckR6 Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/sh0ckR6/PaperEx</url>
+    </repository>
+  </distributionManagement>
+
 </project>

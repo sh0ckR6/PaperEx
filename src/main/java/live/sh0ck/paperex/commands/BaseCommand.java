@@ -1,9 +1,9 @@
 package live.sh0ck.paperex.commands;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabCompleter;
+import org.bukkit.ChatColor;
+import org.bukkit.command.*;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
@@ -32,6 +32,19 @@ public abstract class BaseCommand implements CommandExecutor {
   
   @Override
   public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+    if (this instanceof IPlayerCommand && !(sender instanceof Player)) {
+      sender.sendMessage(ChatColor.RED + "You do not have permission to send this command!");
+      return true;
+    }
+    if (this instanceof IEntityCommand && !(sender instanceof Entity)) {
+      sender.sendMessage(ChatColor.RED + "You do not have permission to send this command!");
+      return true;
+    }
+    if (this instanceof IConsoleCommand && !(sender instanceof ConsoleCommandSender)) {
+      sender.sendMessage(ChatColor.RED + "You do not have permission to send this command!");
+      return true;
+    }
+    
     return execute(sender, command, args);
   }
   

@@ -1,5 +1,12 @@
 package live.sh0ck.paperex.commands;
 
+/**
+ * Exception representing a command that could not be found in the current {@link org.bukkit.plugin.java.JavaPlugin}'s
+ * plugin.yml file.
+ *
+ * @author sh0ckR6
+ * @since latest
+ */
 public class MissingCommandException extends Exception{
   public MissingCommandException() {
     super();
